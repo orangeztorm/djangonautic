@@ -14,6 +14,8 @@
         <option value="$MODULE_DIR$/djangonautic/templates" />
         <option value="$MODULE_DIR$/djangonautic/articles/templates" />
         <option value="$MODULE_DIR$/djangonautic/articles/templates/articles" />
+        <option value="$MODULE_DIR$/djangonautic/accounts/templates/accounts" />
+        <option value="$MODULE_DIR$/djangonautic/accounts/templates" />
       </list>
     </option>
   </component>
