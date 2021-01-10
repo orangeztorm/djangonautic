@@ -8,6 +8,16 @@
 </head>
 <body>
 <a href="{% url 'articles:list' %}"><img src="{% static 'log.png' %}" alt=""></a>
+<nav>
+    <ul>
+        <li>
+            <form action="{% url 'accounts:logout' %}" method="post" class="logout-link">
+                {% csrf_token %}
+                <button type="submit">Logout</button>
+            </form>
+        </li>
+    </ul>
+</nav>
 <div class="wrapper">
     {% block content %} {% endblock %}
 </div>
