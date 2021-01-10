@@ -1,6 +1,7 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
+from . import forms
 from .models import Article
 
 
@@ -19,4 +20,11 @@ def article_detail(request, slug):
 
 @login_required(login_url="/accounts/login/")
 def article_create(request):
-    return render(request, 'articles/article_create.html', )
+    if request.method == 'POST':
+        form = forms.createArticle(request.POST, request.FILES)
+        if form.is_valid():
+            # save article to db
+            return redirect('articles:list')
+    else:
+        form = forms.createArticle()
+    return render(request, 'articles/article_create.html', {'form': form})
