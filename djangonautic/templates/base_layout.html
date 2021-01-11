@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body>
-<a href="{% url 'articles:list' %}"><img src="{% static 'log.png' %}" alt=""></a>
+<a href="{% url 'home' %}"><img src="{% static 'log.png' %}" alt=""></a>
 <nav>
     <ul>
         {% if user.is_authenticated %}
