@@ -10,12 +10,18 @@
 <a href="{% url 'articles:list' %}"><img src="{% static 'log.png' %}" alt=""></a>
 <nav>
     <ul>
-        <li>
-            <form action="{% url 'accounts:logout' %}" method="post" class="logout-link">
-                {% csrf_token %}
-                <button type="submit">Logout</button>
-            </form>
-        </li>
+        {% if user.is_authenticated %}
+            <li>
+                <form action="{% url 'accounts:logout' %}" method="post" class="logout-link">
+                    {% csrf_token %}
+                    <button type="submit">Logout</button>
+                </form>
+            </li>
+            <li><a href="{% url 'articles:create' %}">New article</a></li>
+        {% else %}
+            <li><a href="{% url 'accounts:login' %}">Login</a></li>
+            <li><a href="{% url 'accounts:signup' %}">Signup</a></li>
+        {% endif %}
     </ul>
 </nav>
 <div class="wrapper">
